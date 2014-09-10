@@ -48,20 +48,20 @@ int leitura_entrada(int* tamanho, int matriz[TAM][TAM]){
     /*Faz a leitura do tamanho da matriz*/
     scanf("%d", tamanho);
 
-    /*Checa se o tamanho informado é valido*/
+    /*Checa se o tamanho informado eh valido*/
     if(*tamanho < 1 || *tamanho > 20){
         return -1;
     }
     else{
-        while((c=getchar()) != '\n');
+        while((c=getchar()) != '\n' && c != EOF);
         /*Leitura da matriz e busca do menor elemtento*/
         for(i = 0; i < *tamanho; i++){
             for(j = 0; j < *tamanho; j++){
-                if(scanf("%d", &matriz[i][j]) == -1){
+                if(scanf("%d", &matriz[i][j]) != 1){
                     return -1;
                 }
             }
-            while((c=getchar()) != '\n');
+            while((c=getchar()) != '\n' && c != EOF);
         }
     }
     
@@ -74,7 +74,7 @@ int leitura_entrada(int* tamanho, int matriz[TAM][TAM]){
   tor linha, para no caso de que haja mais de 1 numero i-
   gual ele possa armazenar todos. Em seguida, ele varre as
   colunas armazenadas no vetor linha e ve se o elemento da
-  da linha i, na coluna j, e' o menor da coluna j, se sim, 
+  da linha i, na coluna j, e o menor da coluna j, se sim, 
   faz a impressao definida, se nao, percorre a proxima co-
   luna. Caso ele percorra todas as posicoes da matriz e nao
   encontre nenhum ponto de cela ele imprime nenhum.
@@ -117,17 +117,15 @@ void ponto_de_sela(int tamanho, int matriz[TAM][TAM]){
         }
     }
     if(!ocorre){
-        printf("nenhum\n");
+        printf("    nenhum\n");
     }
 }
 
 /*Esta funcao*/
-
 void impressao(int opcao){
     if(opcao == -1){
         printf("Dados inválidos\n");
     }else{
-        printf("Os pontos de sela da matriz são:\n");
+        printf("Os pontos de sela da matriz são:\n\n");
     }
 }
-
