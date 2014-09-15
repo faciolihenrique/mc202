@@ -38,7 +38,7 @@ int main(){
   capturando o tamanho da matriz e os seus elementos, fazen-
   do a checagem se sao dados validos ou nao.
   Nao serao validos quando o tamanho da matriz for menor que
-  1, maior que 20 ou, os dados da matriz forem imcompletos.
+  1 ou maior que 20, ou se os dados da matriz forem imcompletos.
   Caso haja uma invalidez, a funcao retorna -1, caso contra-
   rio, 1.
  */
@@ -53,8 +53,8 @@ int leitura_entrada(int* tamanho, int matriz[TAM][TAM]){
         return -1;
     }
     else{
+        /*Leitura do numero e desconsideracao do resto da linha*/
         while((c=getchar()) != '\n' && c != EOF);
-        /*Leitura da matriz e busca do menor elemtento*/
         for(i = 0; i < *tamanho; i++){
             for(j = 0; j < *tamanho; j++){
                 if(scanf("%d", &matriz[i][j]) != 1){
