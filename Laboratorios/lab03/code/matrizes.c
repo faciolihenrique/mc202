@@ -41,7 +41,7 @@ void prox_linha(void){
 
 void inicializa(matriz *a, int m, int n){
     ap_elemento r, t;
-    int i, j;
+    int i;
     
     if ((m < 1) || (m > LCMAX)){
         erro("inicializa: número de linhas inválido");
@@ -256,16 +256,32 @@ void imprime_matriz(matriz *a){
       }
 }
  
+
+/*Faz com que o elemto na posicao i, j seja realocado para a posicao
+  j, i*/
 void transpoe(matriz *a, matriz *t){ 
     int i;
+    ap_elemento aux;
+    
     inicializa(t, a->ncols, a->nlins);
-    erro("!!!COMPLETAR");
+    
+    for(i = 0; i < a->nlins; i++){
+        
+        aux = a->clin[i]->dir;
+        
+        while(aux != a->clin[i]){
+            atribui(t, aux->col, aux->lin, aux->val);
+            aux = aux->dir;
+        }
+    }
+    
 }
 
 void soma(matriz *a, matriz *b, matriz *s){
-    int i, j; float v;
+    int i; 
+    float v;
     
-    ap_elemento aux_a, aux+b;
+    ap_elemento aux_a, aux_b;
     
     /* Verifica se possuem mesmas dimensões: */
     if ((a->nlins != b->nlins) || (a->ncols != b->ncols))
@@ -276,28 +292,90 @@ void soma(matriz *a, matriz *b, matriz *s){
     /*Vai linha por linha vendo se os elementos estao nas duas matrizes,
       se estiver, soma as duas, se estiver em uma, e nao na outra, o valor
       eh repassado*/
-    
-    for(i = 0; i <= a->nlins; i++){
+    for(i = 0; i < a->nlins; i++){
         aux_a = a->clin[i]->dir;
         aux_b = b->clin[i]->dir;
         
         while(aux_a != a->clin[i] || aux_b != b->clin[i]){
+            /*Caso em que as posicoes sao as mesmas*/
             if(aux_a->col == aux_b->col){
-                atribui(s, aux_a->lin, aux_a->col, (aux_a->val + aux_b->val);
+                v = aux_a->val + aux_b->val;
+                
+                /*Se a soma não da 0*/
+                if(v){
+                    atribui(s, aux_a->lin, aux_a->col, v);
+                }
+                
+                aux_a = aux_a->dir;
+                aux_b = aux_b->dir;
+            }
+            /*Caso em que 'b' possui uma coluna que 'a' não*/
+            else if(aux_a->col > aux_b->col || aux_a == a->clin[i]){
+                atribui(s, aux_b->lin, aux_b->col, aux_b->val);
+                aux_b = aux_b->dir;
+            }
+            /*Caso em que 'a' possui uma coluna e 'b' nao*/
+            else if(aux_b->col > aux_a->col || aux_b == b->clin[i]){
+                atribui(s, aux_a->lin, aux_a->col, aux_a->val);
+                aux_a = aux_a->dir;
             }
             
         }
-        
-        
-        
     }
-    
     
 }
 
 void multiplica(matriz *a, matriz *b, matriz *p){
     int i, j;
-    if ((a->ncols) != (b->nlins)) { erro("multiplica: tamanhos invalidos"); }
+    float valor;
+    ap_elemento aux_a, aux_b;
+    
+    if ((a->ncols) != (b->nlins)) {
+        erro("multiplica: tamanhos invalidos");
+    }
+    
+    
     inicializa(p, a->nlins, b->ncols);
-    erro("!!!COMPLETAR");
+    
+    /*Para caso uma das matrizes seja nula, a matriz retornada sera nula*/
+    if(!(a->nelems) || !(b->nelems)){
+        return;
+    }
+    
+    /*Faz-se um loop para percorrer todas as linha da matriz a e todas as
+      colunas da matriz b, para cada lina e cada coluna percorre-nas para 
+      ver se haverá alguma valor na multiplicacao, ou será 0.*/
+    for(j = 0; j < b->ncols; j++){
+        for(i = 0; i < a->nlins; i++){
+            aux_a = a->clin[i]->dir;
+            aux_b = b->ccol[j]->ab;
+            valor = 0;
+            
+            /*Loop para percorrer a coluna apontada por b e 
+             a linha apontada por a*/
+            while(aux_a != a->clin[i] && aux_b != b->ccol[j]){
+                /*Caso em que há a multiplicacao por um numero
+                  diferente de 0*/
+                if(aux_a->col == aux_b->lin){
+                    valor = valor + (aux_a->val * aux_b->val);
+                    aux_b = aux_b->ab;
+                    aux_a = aux_a->dir;
+                }
+                /*Caso do elemento na linha a for 0*/
+                else if(aux_a->col > aux_b->lin || aux_a == a->clin[i]){
+                    aux_b = aux_b->ab;
+                }
+                /*Caso o elemento na coluna b for 0*/
+                else if(aux_b->lin > aux_a->col || aux_b == b->ccol[j]){
+                    aux_a = aux_a->dir;
+                }
+            }
+            
+            /*Se a soma da multiplicacao não deu algum valor 0*/
+            if(valor){
+                atribui(p, i, j, valor);
+            }
+            
+        }
+    }
 }
