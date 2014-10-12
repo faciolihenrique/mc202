@@ -74,7 +74,7 @@ Erro InPos(char *infixa, char *posfixa) {
 
     /* Se terminou de ler o programa e ainda possui algum caractere na entrada */
     if(in[indIn] != '\0'){
-        geral = montaErro(OPERANDO_ESPERADO, indIn);
+        geral = montaErro(OPERADOR_ESPERADO, indIn);
     }
 
     /* Caso o programa tenha apresentado algum erro */
