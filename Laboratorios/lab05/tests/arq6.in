@@ -16,7 +16,7 @@ a*b/((c+d)-
 a+( )
 ((((a-b)*c)^d^e)-)
 
-# Operador esperado
+# Operador esperadoa
 ab
 a      b
 a*b+c*d^e/f-gh^i*j
