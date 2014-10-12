@@ -81,6 +81,7 @@ int main() {
 	scanf(" %c %s",&nome, expr);
 	printf(" %c %s", nome, expr);
 	ImprimeComentario();
+    printf("Armazenando o polinomio %c\n", nome);
 	ArmazenaPolinomio(nome, CalcExpr(expr));
 	break;
             
