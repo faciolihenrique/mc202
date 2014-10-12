@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43ABAF2019E9BFCE007EB4D5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 43ABAF1F19E9BFCE007EB4D5 /* main.c */; };
+		43ABAF2E19E9C154007EB4D5 /* analisador.c in Sources */ = {isa = PBXBuildFile; fileRef = 43ABAF2B19E9C154007EB4D5 /* analisador.c */; };
+		43ABAF2F19E9C154007EB4D5 /* principal.c in Sources */ = {isa = PBXBuildFile; fileRef = 43ABAF2D19E9C154007EB4D5 /* principal.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,21 @@
 
 /* Begin PBXFileReference section */
 		43ABAF1C19E9BFCE007EB4D5 /* lab051 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lab051; sourceTree = BUILT_PRODUCTS_DIR; };
-		43ABAF1F19E9BFCE007EB4D5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		43ABAF2B19E9C154007EB4D5 /* analisador.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = analisador.c; path = code/analisador.c; sourceTree = SOURCE_ROOT; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		43ABAF2C19E9C154007EB4D5 /* analisador.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = analisador.h; path = code/analisador.h; sourceTree = SOURCE_ROOT; };
+		43ABAF2D19E9C154007EB4D5 /* principal.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = principal.c; path = code/principal.c; sourceTree = SOURCE_ROOT; };
+		43ABAF3019E9C175007EB4D5 /* arq1.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq1.in; path = tests/arq1.in; sourceTree = SOURCE_ROOT; };
+		43ABAF3119E9C175007EB4D5 /* arq1.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq1.res; path = tests/arq1.res; sourceTree = SOURCE_ROOT; };
+		43ABAF3219E9C175007EB4D5 /* arq2.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq2.in; path = tests/arq2.in; sourceTree = SOURCE_ROOT; };
+		43ABAF3319E9C175007EB4D5 /* arq2.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq2.res; path = tests/arq2.res; sourceTree = SOURCE_ROOT; };
+		43ABAF3419E9C175007EB4D5 /* arq3.in */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text; name = arq3.in; path = tests/arq3.in; sourceTree = SOURCE_ROOT; };
+		43ABAF3519E9C175007EB4D5 /* arq3.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq3.res; path = tests/arq3.res; sourceTree = SOURCE_ROOT; };
+		43ABAF3619E9C175007EB4D5 /* arq4.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq4.in; path = tests/arq4.in; sourceTree = SOURCE_ROOT; };
+		43ABAF3719E9C175007EB4D5 /* arq4.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq4.res; path = tests/arq4.res; sourceTree = SOURCE_ROOT; };
+		43ABAF3819E9C175007EB4D5 /* arq5.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq5.in; path = tests/arq5.in; sourceTree = SOURCE_ROOT; };
+		43ABAF3919E9C175007EB4D5 /* arq5.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq5.res; path = tests/arq5.res; sourceTree = SOURCE_ROOT; };
+		43ABAF3A19E9C175007EB4D5 /* arq6.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq6.in; path = tests/arq6.in; sourceTree = SOURCE_ROOT; };
+		43ABAF3B19E9C175007EB4D5 /* arq6.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = arq6.res; path = tests/arq6.res; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +72,21 @@
 		43ABAF1E19E9BFCE007EB4D5 /* lab051 */ = {
 			isa = PBXGroup;
 			children = (
-				43ABAF1F19E9BFCE007EB4D5 /* main.c */,
+				43ABAF3019E9C175007EB4D5 /* arq1.in */,
+				43ABAF3119E9C175007EB4D5 /* arq1.res */,
+				43ABAF3219E9C175007EB4D5 /* arq2.in */,
+				43ABAF3319E9C175007EB4D5 /* arq2.res */,
+				43ABAF3419E9C175007EB4D5 /* arq3.in */,
+				43ABAF3519E9C175007EB4D5 /* arq3.res */,
+				43ABAF3619E9C175007EB4D5 /* arq4.in */,
+				43ABAF3719E9C175007EB4D5 /* arq4.res */,
+				43ABAF3819E9C175007EB4D5 /* arq5.in */,
+				43ABAF3919E9C175007EB4D5 /* arq5.res */,
+				43ABAF3A19E9C175007EB4D5 /* arq6.in */,
+				43ABAF3B19E9C175007EB4D5 /* arq6.res */,
+				43ABAF2B19E9C154007EB4D5 /* analisador.c */,
+				43ABAF2C19E9C154007EB4D5 /* analisador.h */,
+				43ABAF2D19E9C154007EB4D5 /* principal.c */,
 			);
 			path = lab051;
 			sourceTree = "<group>";
@@ -118,7 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43ABAF2019E9BFCE007EB4D5 /* main.c in Sources */,
+				43ABAF2F19E9C154007EB4D5 /* principal.c in Sources */,
+				43ABAF2E19E9C154007EB4D5 /* analisador.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +262,7 @@
 				43ABAF2519E9BFCE007EB4D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
