@@ -28,13 +28,13 @@
 /* Begin PBXFileReference section */
 		43FE6A6119EB321E00758822 /* lab06 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lab06; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE6A6C19EB322C00758822 /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tests; sourceTree = "<group>"; };
-		43FE6A7A19EB327500758822 /* analisador.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = analisador.c; path = code/analisador.c; sourceTree = "<group>"; };
-		43FE6A7B19EB327500758822 /* analisador.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = analisador.h; path = code/analisador.h; sourceTree = "<group>"; };
+		43FE6A7A19EB327500758822 /* analisador.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = analisador.c; path = code/analisador.c; sourceTree = "<group>"; };
+		43FE6A7B19EB327500758822 /* analisador.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = analisador.h; path = code/analisador.h; sourceTree = "<group>"; };
 		43FE6A7C19EB327500758822 /* balloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = balloc.c; path = code/balloc.c; sourceTree = "<group>"; };
 		43FE6A7D19EB327500758822 /* balloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = balloc.h; path = code/balloc.h; sourceTree = "<group>"; };
 		43FE6A7E19EB327500758822 /* imprimearvore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = imprimearvore.c; path = code/imprimearvore.c; sourceTree = "<group>"; };
 		43FE6A7F19EB327500758822 /* imprimearvore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imprimearvore.h; path = code/imprimearvore.h; sourceTree = "<group>"; };
-		43FE6A8019EB327500758822 /* principal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = principal.c; path = code/principal.c; sourceTree = "<group>"; };
+		43FE6A8019EB327500758822 /* principal.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; lineEnding = 0; name = principal.c; path = code/principal.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +244,7 @@
 				43FE6A6A19EB321E00758822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
