@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		435F969A19FFF38D004AC4D9 /* analisador2.c in Sources */ = {isa = PBXBuildFile; fileRef = 435F969919FFF38D004AC4D9 /* analisador2.c */; };
 		43FE6A8119EB327500758822 /* analisador.c in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A7A19EB327500758822 /* analisador.c */; };
 		43FE6A8219EB327500758822 /* balloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A7C19EB327500758822 /* balloc.c */; };
 		43FE6A8319EB327500758822 /* imprimearvore.c in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A7E19EB327500758822 /* imprimearvore.c */; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		435F969919FFF38D004AC4D9 /* analisador2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = analisador2.c; path = code/analisador2.c; sourceTree = "<group>"; };
 		43FE6A6119EB321E00758822 /* lab06 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lab06; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE6A6C19EB322C00758822 /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tests; sourceTree = "<group>"; };
 		43FE6A7A19EB327500758822 /* analisador.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = analisador.c; path = code/analisador.c; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				43FE6A7A19EB327500758822 /* analisador.c */,
+				435F969919FFF38D004AC4D9 /* analisador2.c */,
 				43FE6A7B19EB327500758822 /* analisador.h */,
 				43FE6A7C19EB327500758822 /* balloc.c */,
 				43FE6A7D19EB327500758822 /* balloc.h */,
@@ -127,6 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435F969A19FFF38D004AC4D9 /* analisador2.c in Sources */,
 				43FE6A8319EB327500758822 /* imprimearvore.c in Sources */,
 				43FE6A8219EB327500758822 /* balloc.c in Sources */,
 				43FE6A8419EB327500758822 /* principal.c in Sources */,
