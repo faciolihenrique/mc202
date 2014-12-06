@@ -35,7 +35,7 @@ typedef struct RegTrie {
 /* ------------------------------------------------------------ */
 
 ImplTrie criaInicializaNo() {
-    /* Devolve um nó com a marca de fim de cadeia verdadeira e todas as
+    /* Devolve um nó com a marca de fim de cadeia falso e todas as
     subárvores vazias; usada para criar a AD inicial e durante a
     inserção.
     */
@@ -104,10 +104,11 @@ Boolean consultaAD(Trie t, char *s) {
 Boolean insereAD(Trie t, char *s) {
     ImplTrie tree = (ImplTrie) t;
 
+    /*Enquanto não chegar ao fim da string de insersao ele verifica
+      se a letra ja esta no vetor, se nao estiver, cria o nó da letra.*/
     while(*s != '\0'){
         if(tree->subarv[*s-'a'] == NULL){
-            ImplTrie aux = criaInicializaNo();
-            tree->subarv[*s-'a'] = aux;
+            tree->subarv[*s-'a'] = criaInicializaNo();
         }
         tree = tree->subarv[*s-'a'];
         s++;
@@ -144,11 +145,52 @@ int numCadeiasAD(Trie t) {
 Boolean removeAD(Trie t, char *s) {
 
     ImplTrie tree = (ImplTrie) t;
+    int i;
 
-    
+    /*Se chegou ao fim do da cadeia s e o nó é o fim de uma cadeia da arvore
+      */
+    if(*s == '\0' && tree->fim == true){
+        short int achou = 0;
+        /*Verifica se o nó possui algum filho*/
+        for(i = 0; i < TAM_ALFABETO; i++){
+            if(tree->subarv[i] != NULL){
+                achou++;
+            }
+        }
 
+        if(achou){
+            tree->fim = false;
+        }else{
+            FREE(tree);
+        }
+
+        return true;
+    }
+
+    /*Se o nó da letra existir*/
+    if(tree->subarv[*s-'a'] != NULL){
+        short int achou = 0;
+        /*Verifica se o nó possui mais de um filho*/
+        for(i = 0; i < TAM_ALFABETO; i++){
+            if(tree->subarv[i] != NULL){
+                achou++;
+            }
+        }
+
+        /*Caso tenha um unico filho, sera o subarv[s-a]*/
+        if(achou == 1){
+            Boolean aux = removeAD((Trie) tree->subarv[*s-'a'], s+1);
+            FREE(tree);
+            return aux;
+        }
+
+        /*Caso não tenha um unico filho, não remove o nó*/
+        return removeAD((Trie) tree->subarv[*s-'a'], s+1);
+    }
+
+    /*Caso tenha chegado ao fim da string e não tenha encontrado o fim ou a subarve
+      é nula(nao tem a palavra na arvore), retorna falso*/
     return false;
-
 }
 
 
@@ -203,7 +245,9 @@ int alturaAD(Trie t) {
 
     for(i = 0; i < TAM_ALFABETO; i++){
         if(ih->subarv[i] != NULL){
-            aux = numNosAD(ih->subarv[i]);
+            /*Guarda em aux o tamanho da arvore*/
+            aux = numNosAD((Trie) ih->subarv[i]);
+
             if(aux > cont){
                 cont = aux;
             }
