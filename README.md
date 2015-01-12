@@ -16,3 +16,5 @@ Exercicios funcionais:
   - 11 ✓
   - 12 ✗ - Não iniciado
   - 13 ✗ - Não iniciado
+
+P.S : "Arquivos "principal.c", "balloc.c", "imprimearvore.c" e os os ".h" não foram feitos pelos alunos da disciplina." - L.C. Souza
