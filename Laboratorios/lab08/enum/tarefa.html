@@ -1,0 +1,80 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="CONTENT-LANGUAGE" content="PT">
+<meta http-equiv="EXPIRES" content="0">
+<title>Sistema SuSy</title>
+
+<script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script></head>
+
+<body bgcolor="#FF9933" text="#000000">
+<center><font size="+2"><b>Sistema SuSy 9.4 — IC/UNICAMP</b></font></center>
+
+<p>
+</p><hr color="#000999" size="5">
+<p>
+</p><blockquote>
+
+<h2>Tarefa 08B de mc202ef — Base de dados com árvores AVL (sem remoção)</h2>
+<p></p><hr color="#000999" size="2"><p>
+<a href="https://susy.ic.unicamp.br:9999/mc202ef/08B/enunc.html">Enunciado</a>&nbsp;&nbsp;&nbsp;<a href="https://susy.ic.unicamp.br:9999/mc202ef/08B/aux/aux.html">Arquivos auxiliares</a>&nbsp;&nbsp;&nbsp;<a href="https://susy.ic.unicamp.br:9999/mc202ef/08B/dados/testes.html">Testes</a>&nbsp;&nbsp;&nbsp;<a href="https://susy.ic.unicamp.br:9999/mc202ef/08B/sols/sols.html">Soluções</a>
+</p><p></p><hr color="#000999" size="2"><p>
+<b>Datas:</b>&nbsp;&nbsp;&nbsp; 22/10/2014&nbsp;(00:00:00) &nbsp;&nbsp;
+       a &nbsp;&nbsp; 15/11/2014 &nbsp; (24:00:00)
+</p><p>
+Entregas:&nbsp;&nbsp;<a href="https://susy.ic.unicamp.br:9999/mc202ef/08B/relatoE.html">Turma E</a>&nbsp;&nbsp;&nbsp;<a href="https://susy.ic.unicamp.br:9999/mc202ef/08B/relatoF.html">Turma F</a>&nbsp;&nbsp;&nbsp;
+</p><p></p><hr color="#000999" size="2"><p>
+</p><form enctype="multipart/form-data" action="../submit" method="POST">
+<input name="taskid" value="08B" type="hidden">
+<input name="course" value="mc202ef" type="hidden">
+<p>
+<b>Usuário:</b> <input style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-position: right center;" name="user" size="15" maxlength="12" type="text"> &nbsp;&nbsp;&nbsp;&nbsp;
+<b>Senha:</b> <input style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-position: right center;" name="passwd" size="15" value="" maxlength="15" type="password">&nbsp;&nbsp;&nbsp;&nbsp;
+<font size="-1">
+
+</font></p><p><font size="-1">
+</font>
+</p><p></p><hr color="#000999" size="2"><p>
+
+</p><p>
+<b>Carga de arquivos:</b><br>
+</p><blockquote>
+<table>
+<tbody><tr><td align="right">base.c</td><td> <input name="file_1" size="45" type="file">&nbsp;</td></tr>
+
+</tbody></table>
+
+</blockquote>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;<input name="submit" value="Submeter" type="submit">
+&nbsp;&nbsp;&nbsp;&nbsp;<input value="Limpar" type="reset">
+</p><p></p><hr color="#000999" size="2"><p>
+</p><h3>Consulta ou recuperação de arquivos:</h3>
+&nbsp;&nbsp;&nbsp;&nbsp;<input name="submit" value="Consultar" type="submit">
+&nbsp;&nbsp;&nbsp;&nbsp;<input name="submit" value="Recuperar" type="submit">
+<p>
+</p></form>
+<p></p><hr color="#000999" size="2"><p>
+
+</p><blockquote>
+<font size="+1">
+<a href="http://www.ic.unicamp.br/%7Etomasz/mc202/avisos.html">Avisos</a> (não deixe de ler!)
+</font>
+</blockquote>
+
+
+</blockquote>
+<p>
+</p><hr color="#000999" size="5">
+<p>
+</p><blockquote>
+<form><input value="Voltar" onclick="window.history.back()" type="button"></form>
+
+<p>
+<small><i>
+Gerado em 23/10/2014 às 14h38m42s<br>
+<a href="http://www.ic.unicamp.br/%7Esusy">SuSy 9.4</a>
+</i></small>
+</p></blockquote>
+
+
+</body></html>

@@ -1,9 +1,9 @@
-/* 
- * huffman.c - Implementação do algoritmo de Huffman. 
+/*
+ * huffman.c - Implementação do algoritmo de Huffman.
  */
 
-/* 
- * huffman.c - Implementação do algoritmo de Huffman. 
+/*
+ * huffman.c - Implementação do algoritmo de Huffman.
  *             Para fazer a implementação com bits verdadeiros,
  *             deixe abaixo a inclusão do arquivo "bits.h"; caso
  *             contrário, do arquivo "pseudo_bits.h".
@@ -36,7 +36,7 @@
 
 typedef struct RegArvHuf *ArvHuf;
 
-typedef enum TipoFilho { 
+typedef enum TipoFilho {
   FilhoEsq = 0, FilhoDir = 1, Indeterminado } TipoFilho;
 
 typedef struct RegArvHuf {
@@ -82,7 +82,7 @@ ArvHuf CriaFolha(char letra, int peso) {
 ArvHuf CombinaArvs(ArvHuf esq, ArvHuf dir) {
 /* Combina duas subárvores numa única árvore cujo peso é a soma dos
    pesos das subárvores; devolve NULL se não há mais memória. */
-  
+
   ArvHuf p=MALLOC(sizeof(RegArvHuf));
   if (p!=NULL) {
     p->esq = esq;
@@ -105,20 +105,20 @@ void LiberaArvoreAux(ArvHuf p){
     LiberaArvoreAux(p->dir);
     FREE(p);
   }
-  
+
 } /* LiberaArvoreAux */
 
 Boolean AcrescentaChar(char *s, int *n, char c, int maxCars) {
 /* Acresenta à seqüência de caracteres 's' o caractere 'c' e
    incrementa '*n'. Devolve 'false' se o número de caracteres
    ultrapassou 'maxCars'.  */
-   
+
   if ((*n)==maxCars)
     return false;
   s[*n] = c;
   (*n)++;
   return true;
-  
+
 } /* AcrescentaChar */
 
 
@@ -138,40 +138,37 @@ short int IBit(char *bits, int i) {
   return bits[i] - '0';
 }
 
-                     
-                     
+
+
 /* --------------------------------------------------------- */
 /* Funções da interface                                      */
 /* --------------------------------------------------------- */
-                      
+
 Boolean ConstroiHuffman(char txt[], int n) {
-/* A partir do texto 'texto' de 'n' caracteres, constrói a árvore de
-   Huffman para compressão deste texto e a guarda numa variável local
-   do módulo 'huffman.c'.  Numa outra variável local guarda um vetor
-   de apontadores para as folhas da árvore. Devolve 'true' se a
-   construção teve sucesso; 'false' caso contrário. */
+    /* A partir do texto 'texto' de 'n' caracteres, constrói a árvore de
+    Huffman para compressão deste texto e a guarda numa variável local
+    do módulo 'huffman.c'.  Numa outra variável local guarda um vetor
+    de apontadores para as folhas da árvore. Devolve 'true' se a
+    construção teve sucesso; 'false' caso contrário. */
 
-  ArvHuf floresta[256];
-  int freq[256], i;
-  Heap heap;      /* Depende da implementação de heap */
-  
-  /* Inicializa variáveis */
-  for (i=0; i<256; i++) {
-    freq[i] = 0;
-    Folhas[i] = NULL;
-  }
+   ArvHuf floresta[256];
+   int freq[256], i;
+   Heap heap;      /* Depende da implementação de heap */
 
-  /* Conta a freqüência dos caracteres */
-  for (i=0; i<n; i++) {
-    freq[(unsigned char) txt[i]]++;
-  }
+   /* Inicializa variáveis */
+   for (i=0; i<256; i++) {
+       freq[i] = 0;
+       Folhas[i] = NULL;
+   }
 
-/*--------------------------*/
-/*       COMPLETAR !!       */
-/*--------------------------*/
+   /* Conta a freqüência dos caracteres */
+   for (i=0; i<n; i++) {
+       freq[(unsigned char) txt[i]]++;
+   }
 
-  return true;   /* PROVISÓRIO */
-  
+
+   return true;   /* PROVISÓRIO */
+
 } /* ConstroiHuffman */
 
 void LiberaHuffman() {
@@ -198,10 +195,10 @@ Boolean Comprime(char *txt, int n,
 /*--------------------------*/
 
   return true;   /* PROVISÓRIO */
-  
+
 } /* Comprime */
 
-   
+
 Boolean Descomprime(char *txt, int *n,
 		    char *bits, int numBits, int tamMaxTxt) {
 /* Descomprime a cadeia de pseudo-bits (ou bits verdadeiros) na área
@@ -215,7 +212,7 @@ Boolean Descomprime(char *txt, int *n,
 /*--------------------------*/
 
   return true;   /* PROVISÓRIO */
-   
+
 } /* Descomprime */
 
 /* --------------------------------------------------------- */
@@ -230,7 +227,7 @@ char buf[10];  /* O buffer de impressão será fixo de até 9 caracteres e \0 */
 ArvHuf esq(ArvHuf p, int nivel) { return p->esq; }
 ArvHuf dir(ArvHuf p, int nivel) { return p->dir; }
 
-char *info(ArvHuf p, int nivel) { 
+char *info(ArvHuf p, int nivel) {
   if ((p->esq==NULL)&&(p->dir==NULL))  /* folha */
     sprintf(buf,"%4d:%c",p->peso,p->letra);
   else  /* nó interno */
@@ -242,16 +239,6 @@ void ImprimeHuffman() {
 /* Imprime a árvore de Huffman num formato legível */
 
   ImprimeArvore(Arvore,(subarvfunc*)esq,(subarvfunc*)dir,(infofunc*)info,NULL,DESLOCA,"Árvore vazia");
-  
+
 
 } /* ImprimeArvore */
-
-
-
-
-
-
-
-
-
-

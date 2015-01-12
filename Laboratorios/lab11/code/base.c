@@ -4,7 +4,7 @@
 * henrique.facioli@gmail.com              *
 * henrique.facioli@students.ic.unicamp.br *
 * github : henriquefacioli                *
-* Tarefa 10 - 2sem 2014                   *
+* Tarefa 11 - 2sem 2014                   *
 * * * * * * * * * * * * * * * * * * * * * */
 
 #include <stdio.h>
@@ -35,9 +35,12 @@ int Espalha(int k) {
 /* FUNÇÕES AUXILIARES */
 /* ------------------ */
 
-/*Algoritimo recursivo para liberar todos os nós da lista*/
+/*Algoritimo para liberar uma lista ligada*/
 void libera_lista(Lista a){
     Lista aux1 = a->prox, aux2;
+    /*Caminha com duas variaveis uma seguida da outra, liberando a segunda
+      e avançando, até que se chegue ao ó cabeça*/
+    /*Como o nome é alocado dinamicamente, precisa libera-lo*/
     while(aux1->aluno.ra != -1){
         aux2 = aux1->prox;
         FREE(aux1->aluno.nome);
@@ -52,6 +55,8 @@ void libera_lista(Lista a){
 /* FUNÇÕES DA INTERFACE */
 /* -------------------- */
 Base CriaBase(){
+    /*Funcao que cria uma base, inicializando o vetor de lista circular com nós
+    cabeças com o valor -1 nelas*/
     ImplBase aux = MALLOC(sizeof(RegBase));
     aux->numregs = 0;
 
@@ -66,16 +71,19 @@ Base CriaBase(){
 }
 
 Boolean InsereBase(Base p, Aluno *a){
+    /*Funcao que insere o aluno a na base p*/
+
     /*Casting*/
     ImplBase z = (ImplBase) p;
     /*Posicao do vetor de lista que deve ser colocado o aluno*/
     int posicao = Espalha(a->ra);
     Lista no, previous, novo_no;
-
+    /*Faz com que previous comece no nó cabeça e nó no seguinte a ele*/
     no = z->tabela[posicao]->prox;
     previous = z->tabela[posicao];
 
-    /*Procura o lugar do aluno dentro da lista*/
+    /*Procura o lugar do aluno dentro da lista, avançando com duas variaveis,
+      uma seguida da outra*/
     while( (a->ra > no->aluno.ra) && (no->aluno.ra != -1)){
         previous = no;
         no = no->prox;
@@ -92,19 +100,21 @@ Boolean InsereBase(Base p, Aluno *a){
     novo_no->prox = previous->prox;
     previous->prox = novo_no;
 
-
+    /*Aumenta o numero de registros dentro da base*/
     z->numregs++;
     return true;
 }
 
 
-Boolean RemoveBase(Base p, int ra){
+Boolean RemoveBase(Base p, int ra{
+    /*Funcao que remove o aluno com o ra da lista*/
+
     /*Casting*/
     ImplBase z = (ImplBase) p;
     /*Posicao do vetor de lista que deve ser colocado o aluno*/
     int posicao = Espalha(ra);
     Lista no , previous;
-
+    /*Assim como no insere*/
     no = z->tabela[posicao]->prox;
     previous = z->tabela[posicao];
 
@@ -125,6 +135,7 @@ Boolean RemoveBase(Base p, int ra){
         return true;
     }
 
+    /*Se nao encontrou, o aluno nao existe, e retorna false*/
     return false;
 }
 
@@ -157,10 +168,12 @@ int NumeroRegsBase(Base p){
 }
 
 void ImprimeBase(Base p){
+    /*Funcao que imprime todos os registros da base*/
     /*Casting*/
     ImplBase z = (ImplBase) p;
     Lista no;
 
+    /*Percorre o vetor de lista, imprimindo a lista*/
     for(int i = 0; i < MaxHash; i++){
         no = (z->tabela[i])->prox;
         while(no->aluno.ra != -1){
